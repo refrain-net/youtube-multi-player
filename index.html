@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+html,
+body,
+#wrapper,
+#wrapper iframe {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#wrapper {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+  grid-template-areas: 'a b c'
+                       'd e f';
+}
+#wrapper iframe:nth-child(1) {
+  grid-area: a;
+}
+#wrapper iframe:nth-child(2) {
+  grid-area: b;
+}
+#wrapper iframe:nth-child(3) {
+  grid-area: c;
+}
+#wrapper iframe:nth-child(4) {
+  grid-area: d;
+}
+#wrapper iframe:nth-child(5) {
+  grid-area: e;
+}
+#wrapper iframe:nth-child(6) {
+  grid-area: f;
+}
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <iframe src="https://www.youtube.com/embed/eR-weJqXxmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/QF9xB0NYeu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ceG1wBO9l5o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/EaqSdZEje8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/GLAUrRYIpag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/D6T6_UIJoc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </body>
+</html>
