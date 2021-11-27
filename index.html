@@ -56,12 +56,9 @@ const getTempalte = count => {
 id_register.onclick = event => {
   content_ids.push(content_id.value);
   const count = getCount();
-  const style = (arr => {
-    while (arr.length < count) arr.push(`${100 / count}%`);
-    return arr.join(' ');
-  })([]);
-  wrapper.style.gridTepmlate.Columns = style;
-  wrapper.style.gridTepmlate.Rows = style;
+  const template = getTempalte(count);
+  wrapper.style.gridTepmlate.Columns = template;
+  wrapper.style.gridTepmlate.Rows = template;
   wrapper.innerHTML = content_ids.map(id).join('');
 };
 document.onkeydown = event => {
