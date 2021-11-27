@@ -57,13 +57,13 @@ id_register.onclick = event => {
   content_ids.push(content_id.value);
   const count = getCount();
   const template = getTempalte(count);
-  wrapper.style.gridTepmlate.Columns = template;
-  wrapper.style.gridTepmlate.Rows = template;
+  wrapper.style.gridTepmlateColumns = template;
+  wrapper.style.gridTepmlateRows = template;
   wrapper.innerHTML = content_ids.map(id).join('');
 };
 document.onkeydown = event => {
   if (event.code === 'Escape') {
-    const display = ctrl.style?.display || 'none';
+    const display = ctrl.style?.display || 'block';
     ctrl.style.display = display === 'none'? 'block': 'none';
   }
 };
