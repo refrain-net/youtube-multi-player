@@ -16,26 +16,11 @@ body,
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
-  grid-template-areas: 'a b c'
-                       'd e f';
 }
-#wrapper iframe:nth-child(1) {
-  grid-area: a;
-}
-#wrapper iframe:nth-child(2) {
-  grid-area: b;
-}
-#wrapper iframe:nth-child(3) {
-  grid-area: c;
-}
-#wrapper iframe:nth-child(4) {
-  grid-area: d;
-}
-#wrapper iframe:nth-child(5) {
-  grid-area: e;
-}
-#wrapper iframe:nth-child(6) {
-  grid-area: f;
+#ctrl {
+  left: 0;
+  position: fixed;
+  top: 0;
 }
     </style>
   </head>
@@ -48,5 +33,41 @@ body,
       <iframe src="https://www.youtube.com/embed/GLAUrRYIpag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/D6T6_UIJoc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <form id="ctrl" onsubmit="return false">
+      <input id="content_id" placeholder="Input YouTube content id" type="text" value="">
+      <button id="id_register"></button>
+    </form>
+    <script>
+'use strict';
+const content_ids = [];
+const getCount = () => {
+  let i = 0;
+  while (i ** 2 < content_ids.length) i ++;
+  return i;
+};
+const getFrame = id => `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+const getTempalte = count => {
+  const arr = [];
+  while (arr.length < count) arr.push(`${100 / count}%`);
+  return arr.join(' ');
+};
+id_register.onclick = event => {
+  content_ids.push(content_id.value);
+  const count = getCount();
+  const style = (arr => {
+    while (arr.length < count) arr.push(`${100 / count}%`);
+    return arr.join(' ');
+  })([]);
+  wrapper.style.gridTepmlate.Columns = style;
+  wrapper.style.gridTepmlate.Rows = style;
+  wrapper.innerHTML = content_ids.map(id).join('');
+};
+documene.onkeydown = event => {
+  if (event.code === 'Escape') {
+    const display = ctrl.style?.display || 'none';
+    ctrl.style.display = display === 'none'? 'block': 'none';
+  }
+};
+    </script>
   </body>
 </html>
