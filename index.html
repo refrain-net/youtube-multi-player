@@ -46,7 +46,7 @@ const getCount = () => {
   return i;
 };
 const getFrame = id => `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-const getTempalte = count => {
+const getTemplate = count => {
   const arr = [];
   while (arr.length < count) arr.push(`${100 / count}%`);
   return arr.join(' ');
@@ -54,9 +54,9 @@ const getTempalte = count => {
 id_register.onclick = event => {
   content_ids.push(content_id.value);
   const count = getCount();
-  const template = getTempalte(count);
-  wrapper.style.gridTepmlateColumns = template;
-  wrapper.style.gridTepmlateRows = template;
+  const template = getTemplate(count);
+  wrapper.style.gridTemplateColumns = template;
+  wrapper.style.gridTemplateRows = template;
   wrapper.innerHTML = content_ids.map(getFrame).join('');
 };
 document.onkeydown = event => {
