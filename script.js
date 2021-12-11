@@ -8,11 +8,11 @@ const getCount = count => {
 };
 const getFrame = id => {
   const iframe = document.createElement('iframe');
-  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-  iframe.allowfullscreen = true;
-  iframe.frameborder = 0;
-  iframe.src = `https://www.youtube.com/embed/${id}`;
-  iframe.title = 'YouTube video player';
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+  iframe.setAttribute('allowfullscreen', true);
+  iframe.setAttribute('frameborder', 0);
+  iframe.setAttribute('src', `https://www.youtube.com/embed/${id}`);
+  iframe.setAttribute('title', 'YouTube video player');
   return iframe;
 };
 const getTemplate = count => {
