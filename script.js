@@ -15,10 +15,8 @@ const getTemplate = count => {
 const update = ids => {
   const count = getCount(ids.length);
   const template = getTemplate(count);
-  console.log(template);
   wrapper.style.gridTemplateColumns = template;
   wrapper.style.gridTemplateRows = template;
-  console.log(ids.map(getFrame));
   wrapper.innerHTML = ids.map(getFrame).join('');
   content_id.value = '';
 };
@@ -28,14 +26,14 @@ document.onkeydown = event => {
     ctrl.style.display = display === 'none'? 'block': 'none';
   }
 };
-document.onload = event => {
-  const {ids} = location.search.slice(1).split('&').map(param => param.split('=')).reduce((accumulator, [key, value]) => {
-    accumulator[key] = value || key;
-    return accumulator;
-  }, {});
-  update(ids.split(','));
-};
 id_register.onclick = event => {
   content_ids.push(content_id.value);
   update(content_ids);
 };
+(() => {
+  const {ids = ''} = location.search.slice(1).split('&').map(param => param.split('=')).reduce((accumulator, [key, value]) => {
+    accumulator[key] = value || key;
+    return accumulator;
+  }, {});
+  if (!ids) update(ids.split(','));
+})();
