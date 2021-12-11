@@ -15,8 +15,10 @@ const getTemplate = count => {
 const update = ids => {
   const count = getCount(ids.length);
   const template = getTemplate(count);
+  console.log(template);
   wrapper.style.gridTemplateColumns = template;
   wrapper.style.gridTemplateRows = template;
+  console.log(ids.map(getFrame));
   wrapper.innerHTML = ids.map(getFrame).join('');
   content_id.value = '';
 };
