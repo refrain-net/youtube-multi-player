@@ -6,7 +6,15 @@ const getCount = count => {
   while (i ** 2 < count) i ++;
   return i;
 };
-const getFrame = id => `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+const getFrame = id => {
+  const iframe = document.createElement('iframe');
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowfullscreen = true;
+  iframe.frameborder = 0;
+  iframe.src = `https://www.youtube.com/embed/${id}`;
+  iframe.title = 'YouTube video player';
+  return iframe;
+};
 const getTemplate = count => {
   const arr = [];
   while (arr.length < count) arr.push(`${100 / count}%`);
@@ -17,7 +25,7 @@ const update = ids => {
   const template = getTemplate(count);
   wrapper.style.gridTemplateColumns = template;
   wrapper.style.gridTemplateRows = template;
-  wrapper.innerHTML = ids.map(getFrame).join('');
+  ids.forEach(id => wrapper.appendChild(getFrame(id)));
   content_id.value = '';
 };
 document.onkeydown = event => {
