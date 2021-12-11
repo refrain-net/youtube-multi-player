@@ -39,34 +39,6 @@ body,
       <input id="content_id" placeholder="Input YouTube content id" type="text" value="">
       <button id="id_register">追加</button>
     </form>
-    <script>
-'use strict';
-const content_ids = [];
-const getCount = () => {
-  let i = 0;
-  while (i ** 2 < content_ids.length) i ++;
-  return i;
-};
-const getFrame = id => `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-const getTemplate = count => {
-  const arr = [];
-  while (arr.length < count) arr.push(`${100 / count}%`);
-  return arr.join(' ');
-};
-id_register.onclick = event => {
-  content_ids.push(content_id.value);
-  const count = getCount();
-  const template = getTemplate(count);
-  wrapper.style.gridTemplateColumns = template;
-  wrapper.style.gridTemplateRows = template;
-  wrapper.innerHTML = content_ids.map(getFrame).join('');
-};
-document.onkeydown = event => {
-  if (event.code === 'Escape') {
-    const display = ctrl.style?.display || 'block';
-    ctrl.style.display = display === 'none'? 'block': 'none';
-  }
-};
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
