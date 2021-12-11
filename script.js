@@ -43,5 +43,5 @@ id_register.onclick = event => {
     accumulator[key] = value || key;
     return accumulator;
   }, {});
-  if (!ids) update(ids.split(','));
+  if (ids) update(ids.split(','));
 })();
