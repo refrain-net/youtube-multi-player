@@ -1,4 +1,5 @@
 'use strict';
+
 const content_ids = [];
 const getCount = count => {
   let i = 0;
@@ -16,7 +17,7 @@ const update = ids => {
   const template = getTemplate(count);
   wrapper.style.gridTemplateColumns = template;
   wrapper.style.gridTemplateRows = template;
-  wrapper.innerHTML = content_ids.map(getFrame).join('');
+  wrapper.innerHTML = ids.map(getFrame).join('');
   content_id.value = '';
 };
 document.onkeydown = event => {
