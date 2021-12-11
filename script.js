@@ -30,7 +30,7 @@ document.onload = event => {
     accumulator[key] = value || key;
     return accumulator;
   }, {});
-  update(...ids.split(','));
+  update(ids.split(','));
 };
 id_register.onclick = event => {
   content_ids.push(content_id.value);
