@@ -25,6 +25,7 @@ const update = ids => {
   const template = getTemplate(count);
   wrapper.style.gridTemplateColumns = template;
   wrapper.style.gridTemplateRows = template;
+  wrapper.innerHTML = '';
   ids.forEach(id => wrapper.appendChild(getFrame(id)));
   content_id.value = '';
 };
