@@ -7,6 +7,7 @@ html, body, #wrapper, #wrapper iframe {
   width: 100%;
 }
 #wrapper {
+  background-color: black;
   display: grid;
 }
 #ctrl {
